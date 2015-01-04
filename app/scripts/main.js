@@ -114,7 +114,7 @@ var ArcReactor = (function(Particle){
 		this.stage.removeAllChildren();
 		
 		//for reference
-    //g = new createjs.Shape();	g.graphics.setStrokeStyle(3).beginStroke("#8fd0cc").drawCircle(this.radius, this.radius, this.radius-20); this.stage.addChild(g);		
+    g = new createjs.Shape();	g.graphics.setStrokeStyle(1).beginStroke("#8fd0cc").drawCircle(this.radius, this.radius, this.radius-20); this.stage.addChild(g);		
 		//*************
 		
    	for(var i=0; i < this.numParticles; i++){
