@@ -1,0 +1,9 @@
+{
+  "name": "arc-reactor",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.1",
+    "easeljs": "~0.8.0"
+  }
+}

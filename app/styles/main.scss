@@ -1,0 +1,26 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+
+
+html{
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+
+  @include linear-gradient(to bottom, $lightBlue 0%, $midBlue 70%, $darkBlue 100%);
+}
+
+.page-container{
+  width: 1020px;
+  margin: 0 auto;
+  position: relative;
+}
+
+canvas{
+  margin: 200px auto; 
+  display: block;
+  //background-color: red;
+}
