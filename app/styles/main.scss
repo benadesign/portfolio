@@ -8,9 +8,9 @@ html{
 }
 
 body{
-  min-height: 100%;
-
-  @include linear-gradient(to bottom, $lightBlue 0%, $midBlue 70%, $darkBlue 100%);
+  min-height: 100%; 
+  
+  //@include linear-gradient(to bottom, $lightBlue 0%, $midBlue 70%, $darkBlue 100%);
 }
 
 .page-container{
@@ -22,5 +22,7 @@ body{
 canvas{
   margin: 200px auto; 
   display: block;
-  //background-color: red;
+  background: url(../images/emblem.png) no-repeat center center;
+  background-size: 450px auto;
+  
 }

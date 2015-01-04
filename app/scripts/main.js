@@ -29,6 +29,7 @@ var Particle = (function(){
 			sineWavePeriod : 100,
 			size: 1,
 			angle : 0,
+			direction : 1
 		}
 
 		if (options) Utils.extend(this.config, options) ;
@@ -36,16 +37,17 @@ var Particle = (function(){
 		this.circle = new createjs.Shape();
 		this.circle.graphics
 			//.beginFill( this.getColor() )
-			.beginFill( "rgba(255,255,255,"+Utils.range(0.3,0.5)+")" )
+			//.beginFill( "rgba(255,255,255,"+Utils.range(0.3,0.5)+")" )
 			//.beginFill( "rgba(246,235,120,"+Utils.range(0.5,1)+")" )
+			.beginFill("white")
 			.drawCircle(0, 0, this.config.size);
 	}
 
 	Particle.prototype.draw = function (){		
-    this.circle.x = (this.radius - 20 + (this.sine() * this.amplitude )) * Math.cos( this.config.angle ) + this.radius;
-	  this.circle.y = (this.radius - 20 + (this.sine() * this.amplitude )) * Math.sin( this.config.angle ) + this.radius;
+    this.circle.x = ((this.radius - 20 + (this.sine() * this.amplitude )) * Math.cos( this.config.angle ) + this.radius);
+	  this.circle.y = ((this.radius - 20 + (this.sine() * this.amplitude )) * Math.sin( this.config.angle ) + this.radius);
 	  
-	  this.config.angle += Math.PI * 2 / this.config.friction;
+	  this.config.angle += (Math.PI * 2 / this.config.friction) * this.config.direction;
 
 	  this.stage.addChild(this.circle);
 	}
@@ -58,9 +60,9 @@ var Particle = (function(){
 
 	Particle.prototype.getColor = function(){
 		var colors = [
-		"rgba(0,216,255,"+Utils.range(0.3,1)+")",
-		"rgba(255,0,246,"+Utils.range(0.3,1)+")",
-		"rgba(0,255,54,"+Utils.range(0.3,1)+")"
+		"rgba(0,216,255,"+Utils.range(0.3,0.8)+")",
+		"rgba(255,0,246,"+Utils.range(0.3,0.8)+")",
+		"rgba(0,255,54,"+Utils.range(0.3,0.8)+")"
 		];
 		return colors[Math.floor(Math.random()*colors.length)];
 	}
@@ -79,8 +81,8 @@ var ArcReactor = (function(Particle){
 	function ArcReactor(canvasSelector){
 		this.canvas = document.getElementById(canvasSelector);
 		
-		var ctx = this.canvas.getContext('2d');
-		ctx.globalCompositeOperation = 'lighter';
+		//var ctx = this.canvas.getContext('2d');
+		//ctx.globalCompositeOperation = 'lighter';
 
 		this.stage = new createjs.Stage(this.canvas);
 		this.numParticles = 1000;
@@ -93,13 +95,15 @@ var ArcReactor = (function(Particle){
 	ArcReactor.prototype.setup = function(){
 		//Update stage will render next frame
 		var _this = this;
+		var directions = [1,-1];
 
 		for(var i=0; i < this.numParticles; i++){
 			this.particles.push(new Particle(this.stage, this.radius, {
-				size :           Utils.range(1, 3) ,
+				size :           Utils.range(0.5, 5) ,
 				friction :       Utils.range(200, 300),
 				sineWavePeriod : Utils.range(100, 150),
-				angle : Math.PI * 2 / Math.random()			
+				angle : Math.PI * 2 / Math.random(),
+				direction : directions[Math.floor(Math.random()*directions.length)]
 			}));
 		}
     
@@ -114,7 +118,7 @@ var ArcReactor = (function(Particle){
 		this.stage.removeAllChildren();
 		
 		//for reference
-    g = new createjs.Shape();	g.graphics.setStrokeStyle(1).beginStroke("#8fd0cc").drawCircle(this.radius, this.radius, this.radius-20); this.stage.addChild(g);		
+    //g = new createjs.Shape();	g.graphics.setStrokeStyle(1).beginStroke("#8fd0cc").drawCircle(this.radius, this.radius, this.radius-20); this.stage.addChild(g);		
 		//*************
 		
    	for(var i=0; i < this.numParticles; i++){
