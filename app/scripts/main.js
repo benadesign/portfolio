@@ -44,8 +44,8 @@ var Particle = (function(){
 	}
 
 	Particle.prototype.draw = function (){		
-    this.circle.x = ((this.radius - 20 + (this.sine() * this.amplitude )) * Math.cos( this.config.angle ) + this.radius);
-	  this.circle.y = ((this.radius - 20 + (this.sine() * this.amplitude )) * Math.sin( this.config.angle ) + this.radius);
+    this.circle.x = ((this.radius - 90 + (this.sine() * this.amplitude )) * Math.cos( this.config.angle ) + this.radius);
+	  this.circle.y = ((this.radius - 210 + (this.sine() * this.amplitude )) * Math.sin( this.config.angle ) + this.radius);
 	  
 	  this.config.angle += (Math.PI * 2 / this.config.friction) * this.config.direction;
 
@@ -60,9 +60,9 @@ var Particle = (function(){
 
 	Particle.prototype.getColor = function(){
 		var colors = [
-		"rgba(0,216,255,"+Utils.range(0.3,0.8)+")",
-		"rgba(255,0,246,"+Utils.range(0.3,0.8)+")",
-		"rgba(0,255,54,"+Utils.range(0.3,0.8)+")"
+		"rgba(66,42,121,"+Utils.range(0.3,0.7)+")",
+		"rgba(136,95,164,"+Utils.range(0.3,0.8)+")",
+		"rgba(227,136,197,"+Utils.range(0.3,0.8)+")"
 		];
 		return colors[Math.floor(Math.random()*colors.length)];
 	}
@@ -85,7 +85,7 @@ var ArcReactor = (function(Particle){
 		//ctx.globalCompositeOperation = 'lighter';
 
 		this.stage = new createjs.Stage(this.canvas);
-		this.numParticles = 1000;
+		this.numParticles = 100;
 		this.radius = this.stage.canvas.width / 2;
 		this.particles = [];
 
@@ -99,11 +99,11 @@ var ArcReactor = (function(Particle){
 
 		for(var i=0; i < this.numParticles; i++){
 			this.particles.push(new Particle(this.stage, this.radius, {
-				size :           Utils.range(0.5, 5) ,
+				size :           Utils.range(0.5, 1.5) ,
 				friction :       Utils.range(200, 300),
-				sineWavePeriod : Utils.range(100, 150),
+				sineWavePeriod : Utils.range(400, 450),
 				angle : Math.PI * 2 / Math.random(),
-				direction : directions[Math.floor(Math.random()*directions.length)]
+				direction : 1//directions[Math.floor(Math.random()*directions.length)]
 			}));
 		}
     
