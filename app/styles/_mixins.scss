@@ -1,3 +1,40 @@
+//
+// mixin for bullet proof font declaration syntax
+//
+$font-path : "/fonts/";
+@mixin declare-font-face($font-family, $font-filename, $font-weight : normal, $font-style :normal, $font-stretch : normal) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url($font-path + '#{$font-filename}.eot');
+    src: url($font-path + '#{$font-filename}.eot?#iefix') format('embedded-opentype'),
+    url($font-path + '#{$font-filename}.woff') format('woff'),
+    url($font-path + '#{$font-filename}.ttf') format('truetype'),
+    url($font-path + '#{$font-filename}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-stretch: $font-stretch;
+  }
+}
+
+//rem with pixel fallback
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    *zoom: 1;
+}
+
+
 // ----
 // Sass (v3.4.7)
 // Compass (v1.0.1)

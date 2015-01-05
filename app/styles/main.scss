@@ -2,27 +2,115 @@
 @import 'variables';
 @import 'mixins';
 
+@include declare-font-face('Sharp Sans Medium', 'SharpSansNo1-Medium', 300);
 
 html{
   height: 100%;
 }
 
 body{
+  font-size: 16px;
   min-height: 100%; 
-  
+  font-family: 'Sharp Sans Medium' , arial, sans-serif;
+
   //@include linear-gradient(to bottom, $lightBlue 0%, $midBlue 70%, $darkBlue 100%);
 }
 
-.page-container{
-  width: 1020px;
+h1,h2,h3,h4,h5,h6{
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0 0 20px 0;
+}
+
+h1 { @include font-size(2.8);}
+h2 { @include font-size(2.4);}
+h3 { @include font-size(2);}
+h4 { @include font-size(1.4); color: #999}
+h3+h4{
+  margin-top: -20px;
+}
+
+p{
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.container, header.site, article{
+  width: 100%;
+  max-width: 960px;
   margin: 0 auto;
+  padding: 0 20px;
   position: relative;
 }
 
+header.site{
+  padding-top: 40px;
+  text-align: right;
+  
+  .social{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    img{
+      width: 100%;
+    }
+  }
+}
+
+.content-main{
+  background: $purple;
+  overflow: hidden;
+  color:white;
+
+  h2, a{
+    color: $pink;    
+  }
+}
+
+.triangle {
+  width: 100%;
+  overflow: hidden;
+  margin-top: -410px;
+  > div{
+    border-top-width: 360px;
+    border-left-width:2100px;
+    border-style:solid;
+    border-color: transparent transparent $purple $purple;
+  }
+}
+
+
+
 canvas{
-  margin: 200px auto; 
+  margin: 0 auto; 
   display: block;
   background: url(../images/emblem.png) no-repeat center center;
   background-size: 395px auto;
   
+}
+
+
+
+.portfolio{ 
+  article{
+    @include clearfix();
+    margin: 40px 0;
+  }
+
+  header, main{
+    width: 48%;
+    margin: 0 1%;
+    float:left;
+  }
+  
+  header img{
+    width: 100%;
+  }
+  
+  article:nth-child(odd){
+    header, main{
+      float: right;
+    }
+  }
 }

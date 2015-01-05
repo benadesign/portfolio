@@ -1,3 +1,11 @@
+$(window).resize(resize);
+
+function resize(){
+	$('.triangle > div').css('border-left-width', $(window).width() + 'px');
+}
+
+resize();
+
 var Utils = {
 	extend : function(destination, source) {   
     for (var property in source) {
@@ -107,9 +115,9 @@ var ArcReactor = (function(Particle){
 			}));
 		}
     
-    //createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED;
-		//createjs.Ticker.setFPS(40);
-    createjs.Ticker.timingMode = createjs.Ticker.RAF;
+    createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED;
+		createjs.Ticker.setFPS(40);
+    //createjs.Ticker.timingMode = createjs.Ticker.RAF;
     createjs.Ticker.addEventListener("tick", function(){ _this.tick() } );
 	}
 
