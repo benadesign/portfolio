@@ -1,11 +1,11 @@
-$(window).resize(resize);
+/*$(window).resize(resize);
 
 function resize(){
 	$('.triangle > div').css('border-left-width', $(window).width() + 'px');
 }
 
 resize();
-
+*/
 var Utils = {
 	extend : function(destination, source) {   
     for (var property in source) {
@@ -140,5 +140,27 @@ var ArcReactor = (function(Particle){
 
 })(Particle);
 
-var arc = new ArcReactor('arcReactor');
+//var arc = new ArcReactor('arcReactor');
 
+
+$('nav a').on('click', function(e){
+	e.preventDefault();
+	switch(e.target.href.split('#').pop()){
+		case 'about' :
+			about();
+			break;
+		case 'works' :			
+			works();
+			break;
+		default :
+			return;
+	}
+});
+
+function about(){
+	console.log('about page');
+}
+
+function works(){
+	console.log('works page');
+}
