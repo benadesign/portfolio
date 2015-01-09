@@ -140,7 +140,7 @@ var ArcReactor = (function(Particle){
 
 })(Particle);
 
-//var arc = new ArcReactor('arcReactor');
+var arc = new ArcReactor('arcReactor');
 
 
 $('nav a').on('click', function(e){
@@ -157,8 +157,20 @@ $('nav a').on('click', function(e){
 	}
 });
 
+$('.left .back').on('click', function(){
+	aboutTl.reverse();
+});
+
+var aboutTl = new TimelineMax({paused : true});
+aboutTl.add( TweenLite.to('.left', 0.25, {width : '100%', ease : Quad.easeOut, onComplete : function(){ TweenLite.set('.right', {css : {display : 'none'}}) } } ) );
+aboutTl.add( TweenLite.to('.left', 0.35, {xPercent : 50, ease : Linear.easeNone} ) );
+aboutTl.add( TweenLite.to(['.left'], 0.35, {xPercent : 86, ease : Quint.easeOut} ) );
+aboutTl.add( TweenLite.to(['#reactor'], 0.35, {xPercent : 130, ease : Quint.easeOut} ), '-=0.35' );
+
 function about(){
-	console.log('about page');
+	TweenLite.set('.left', {css : {'z-index' : 100}});
+	
+	aboutTl.restart();
 }
 
 function works(){
