@@ -38,29 +38,63 @@
     <![endif]-->
 
 
+
+
     <div class="page-container">
+     
+      <section id="page-about" class="page">
+        <div class="page-inner">
+          <h2>About</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper consequat adipiscing. In mauris sem, vehicula sed elementum quis, rhoncus vel risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus posuere fringilla nunc eget aliquam.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper consequat adipiscing. In mauris sem, vehicula sed elementum quis, rhoncus vel risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus posuere fringilla nunc eget aliquam.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper consequat adipiscing. In mauris sem, vehicula sed elementum quis, rhoncus vel risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus posuere fringilla nunc eget aliquam.</p>
+          <a class="social" href="https://github.com/benjamingeorge" target="_blank"><img src="images/github.svg" alt=""></a>
+          <a class="social" href="mailto:benjamin.bissonnette@gmail.com"><img src="images/email.svg" alt=""></a>
+        </div>
+      </section>
+
+
+      <section id="page-works" class="page">
+        <div class="page-inner">
+          <h2>Works</h2>
+          
+          <div class="portfolio">
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+          </div>
+        </div>
+      </section>
+      
+
+      <section id="page-home" class="page">                       
+          <div class="left">            
+            <section>         
+              <nav>
+                <a class="js-link" href="/about">About</a>
+              </nav>
+              <h1>Ben Bissonnette</h1>      
+            </section>              
+          </div>
+
+          <div class="right">
+            <section>          
+              <nav>
+                <a class="js-link" href="/works">Works</a>
+              </nav>
+              <h1>Web Developer</h1>
+            </section>        
+          </div> 
+      </section>
+      
       <div id="reactor">
         <canvas id="arcReactor" width="450" height="450"></canvas>
       </div>
-      <div class="left">
-        <div class="back">Back</div>
-        <section>
 
-          <h1>Ben Bissonnette</h1>
-          <nav>
-            <a href="/#about">About</a>
-          </nav>
-        </section>        
-      </div>
-      <div class="right">
-        <section>
-          <h1>Web Developer</h1>
-          <nav>
-            <a href="/#works">Works</a>
-          </nav>
-        </section>        
-      </div>
-    </div>
+    </div><!-- end page-container -->
 
 
 
@@ -73,9 +107,10 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/reactor.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
 
 
 
