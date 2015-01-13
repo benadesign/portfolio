@@ -1,32 +1,3 @@
-var currentPage = 'home';
-
-$('.js-link').on('click', function(e){
-	e.preventDefault();
-	switch(e.target.href.split('/').pop()){
-		case 'about' :
-			about();
-			break;
-		case 'works' :			
-			works();
-			break;
-		default :
-			return;
-	}
-});
-
-$('.left .back').on('click', function(){
-	currentPage = 'home';	
-	$('.page').removeClass('active');	
-	aboutTl.reverse();
-});
-
-$('.right .back').on('click', function(){
-	currentPage = 'home';	
-	$('.page').removeClass('active');	
-	worksTL.reverse();
-});
-
-
 
 var aboutTl = new TimelineMax({paused : true});
 aboutTl.add( TweenLite.to(['.left nav', '.left h1'], 0.2, {opacity : 0}));
@@ -35,14 +6,6 @@ aboutTl.add( TweenLite.to('#page-home', 0.15, {xPercent : 50, ease : Linear.ease
 aboutTl.add( TweenLite.to(['#page-home'], 0.15, {xPercent : 80, ease : Linear.easeNone} ) );
 aboutTl.add( TweenLite.to(['#reactor'], 0.15, { css : {left : '80%'} , ease : Linear.easeNone} ), '-=0.15' );
 aboutTl.add( TweenLite.to('.left .back', 0.5, {opacity: 1, ease : Quint.easeOut} ), '-=0.15' );
-
-function about(){
-	currentPage = 'about';
-	$('.page').removeClass('active');
-	$('#page-about').addClass('active');	
-	
-	aboutTl.restart();
-}
 
 
 var worksTL = new TimelineMax({paused : true});
@@ -53,8 +16,51 @@ worksTL.add( TweenLite.to(['#page-home'], 0.25, {xPercent : -80, ease : Linear.e
 worksTL.add( TweenLite.to(['#reactor'], 0.25, { css : {left : '20%'} , ease : Linear.easeNone} ), '-=0.25' );
 worksTL.add( TweenLite.to('.right .back', 0.5, {opacity: 1, ease : Quint.easeOut} ), '-=0.25' );
 
+
+// configuration
+Router.config({ mode: 'history'});
+
+// adding routes
+Router
+	.add(/about/, function() {
+	    console.log('about');
+	    about();
+	})
+
+	.add(/works/, function() {
+	    console.log('works');
+	    works();
+	})
+
+	.add(function() {
+	    console.log('default');
+	}).check('').listen();
+
+
+
+
+$('.left .back').on('click', function(){	
+	$('.page').removeClass('active');	
+	aboutTl.reverse();
+	Router.navigate();
+});
+
+$('.right .back').on('click', function(){	
+	$('.page').removeClass('active');	
+	worksTL.reverse();
+	Router.navigate();
+});
+
+
+function about(){
+	$('.page').removeClass('active');
+	$('#page-about').addClass('active');	
+	
+	aboutTl.restart();
+}
+
+
 function works(){
-	currentPage = 'works';
 	$('.page').removeClass('active');
 	$('#page-works').addClass('active');		
 	

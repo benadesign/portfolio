@@ -3,6 +3,7 @@
 // generated on 2015-01-03 using generator-gulp-webapp 0.2.0
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+var historyApiFallback = require('connect-history-api-fallback');
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -66,8 +67,10 @@ gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 gulp.task('connect', ['styles'], function () {
   var serveStatic = require('serve-static');
   var serveIndex = require('serve-index');
+  
   var app = require('connect')()
     .use(require('connect-livereload')({port: 35729}))
+    .use(historyApiFallback)
     .use(serveStatic('.tmp'))
     .use(serveStatic('app'))
     // paths to bower_components should be relative to the current file
