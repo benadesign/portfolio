@@ -76,7 +76,8 @@ canvas{
     overflow:auto;
     z-index: -1;
     opacity: 0;
-
+    transition: opacity 500ms;
+    
     .page-inner{
       padding: 60px 20px;
       header{

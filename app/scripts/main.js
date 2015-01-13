@@ -29,7 +29,7 @@ $('.right .back').on('click', function(){
 
 
 var aboutTl = new TimelineMax({paused : true});
-aboutTl.add( TweenLite.to(['.left nav', '.left h1'], 0.1, {opacity : 0}));
+aboutTl.add( TweenLite.to(['.left nav', '.left h1'], 0.2, {opacity : 0}));
 aboutTl.add( TweenLite.to('.left', 0.25, {width : '100%', ease : Quad.easeOut}));
 aboutTl.add( TweenLite.to('#page-home', 0.35, {xPercent : 50, ease : Linear.easeNone} ) );
 aboutTl.add( TweenLite.to(['#page-home'], 0.25, {xPercent : 80, ease : Linear.easeNone} ) );
@@ -46,7 +46,7 @@ function about(){
 
 
 var worksTL = new TimelineMax({paused : true});
-worksTL.add( TweenLite.to(['.right nav', '.right h1'], 0.1, {opacity : 0}));
+worksTL.add( TweenLite.to(['.right nav', '.right h1'], 0.2, {opacity : 0}));
 worksTL.add( TweenLite.to('.right', 0.25, {width : '100%', ease : Quad.easeOut}));
 worksTL.add( TweenLite.to('#page-home', 0.35, {xPercent : -50, ease : Linear.easeNone} ) );
 worksTL.add( TweenLite.to(['#page-home'], 0.25, {xPercent : -80, ease : Linear.easeNone} ) );
