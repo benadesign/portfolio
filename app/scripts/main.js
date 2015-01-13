@@ -31,10 +31,10 @@ $('.right .back').on('click', function(){
 var aboutTl = new TimelineMax({paused : true});
 aboutTl.add( TweenLite.to(['.left nav', '.left h1'], 0.2, {opacity : 0}));
 aboutTl.add( TweenLite.to('.left', 0.25, {width : '100%', ease : Quad.easeOut}));
-aboutTl.add( TweenLite.to('#page-home', 0.35, {xPercent : 50, ease : Linear.easeNone} ) );
-aboutTl.add( TweenLite.to(['#page-home'], 0.25, {xPercent : 80, ease : Linear.easeNone} ) );
-aboutTl.add( TweenLite.to(['#reactor'], 0.25, { css : {left : '80%'} , ease : Linear.easeNone} ), '-=0.25' );
-aboutTl.add( TweenLite.to('.left .back', 0.5, {opacity: 1, ease : Quint.easeOut} ), '-=0.25' );
+aboutTl.add( TweenLite.to('#page-home', 0.15, {xPercent : 50, ease : Linear.easeNone} ) );
+aboutTl.add( TweenLite.to(['#page-home'], 0.15, {xPercent : 80, ease : Linear.easeNone} ) );
+aboutTl.add( TweenLite.to(['#reactor'], 0.15, { css : {left : '80%'} , ease : Linear.easeNone} ), '-=0.15' );
+aboutTl.add( TweenLite.to('.left .back', 0.5, {opacity: 1, ease : Quint.easeOut} ), '-=0.15' );
 
 function about(){
 	currentPage = 'about';

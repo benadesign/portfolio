@@ -122,8 +122,8 @@ canvas{
     background-color: #c4c4c4;
 
     .page-inner{
-      width: 45%;
-      margin: 0 10% 0 45%;
+      width: 50%;
+      margin: 0 10% 0 40%;
     }
     
     .portfolio{ @include clearfix(); }
@@ -216,11 +216,11 @@ canvas{
 }
 
 .right .back{
-  right: 20px;
+  right: 40px;
   color: $purple;
 }
 
 .left .back{
-  left: 20px; 
+  left: 40px; 
   color: $pink;
 }
