@@ -33,10 +33,10 @@ a{
   outline: none;
   border:none;
   -webkit-tap-highlight:none;
-  font-size: 22px;
-  text-transform: uppercase;
   text-decoration: none;
+  color: $pink;
 }
+
 p{
   line-height: 1.5;
   margin: 0 0 20px 0;
@@ -96,49 +96,106 @@ canvas{
     z-index: 100;
     opacity: 1;
   }
+}
+
+/* ==========================================================================
+   About
+========================================================================== */
+#page-about{    
+  background: url(../images/me.jpg) left bottom white;
+  background-size: cover;
   
-  #page-about{    
-    background: url(../images/me.jpg) left bottom white;
-    background-size: cover;
+  .page-inner{
+    width: 35%;      
+    margin: 0 40% 0 25%;
+  }
+
+  .social{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    img{
+      width: 100%;
+    }
+  }
+
+}
+
+
+/* ==========================================================================
+   Works
+========================================================================== */
+#page-works{    
+  background-color: $gray;
+
+  .page-inner{
+    width: 52%;
+    margin: 0 10% 0 38%;
+  }
+  
+  .portfolio{ @include clearfix(); }
+  
+  .portfolio article{      
+    @include clearfix();
+    width: 100%;
+    margin: 5px 0;        
+    background-size: 100% auto;
+    padding: 20px 0;    
+    border-bottom: 1px solid $darkGray;
     
-    .page-inner{
-      width: 35%;      
-      margin: 0 40% 0 25%;
+    &:last-child{
+      border:none;
+    }
+    
+  
+    h3,h4{
+      margin-bottom: 10px;
     }
 
-    .social{
-      width: 40px;
-      height: 40px;
-      display: inline-block;
-      position: relative;
+    h3{
+      @include font-size(1.2);
+    }
+    
+    p{
+      margin: 0 0 10px 0;
+    }
+    
+
+    header{
+      float: left;
+      width: 30%;
+      margin-right: 2%;
+
       img{
+        display: block;
         width: 100%;
       }
     }
 
-  }
+    footer{
+      clear:both;
 
-  #page-works{    
-    background-color: #c4c4c4;
+      p.date, p.tags{
+        margin: 0;
+        color: darken($darkGray, 20%);
+        @include font-size(0.9);
+      }
+      p.date{
+        float: left;
+      }
 
-    .page-inner{
-      width: 50%;
-      margin: 0 10% 0 40%;
-    }
-    
-    .portfolio{ @include clearfix(); }
-    .portfolio article{      
-      height: 300px;
-      width: 48%;
-      margin: 10px 1%;
-      float: left;
-      background: black;    
-      background-size: 100% auto;
+      p.tags{
+        text-align: right;
+      }
+
     }
   }
 }
 
-
+/* ==========================================================================
+   Home Page
+========================================================================== */
 #page-home{
 
   .left, .right{
@@ -186,7 +243,7 @@ canvas{
 
   .right{
     right: 0;
-    background: #a1a1a1;
+    background: $darkGray;
 
     section{    
       float: left;
