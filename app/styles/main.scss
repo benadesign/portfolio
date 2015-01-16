@@ -144,7 +144,9 @@ canvas{
     background-size: 100% auto;
     padding: 20px 0;    
     border-bottom: 1px solid $darkGray;
+    position: relative;
     
+
     &:last-child{
       border:none;
     }
@@ -164,14 +166,21 @@ canvas{
     
 
     header{
-      float: left;
+      position: absolute;
+      top:20px;
+      left:0;
       width: 30%;
-      margin-right: 2%;
 
       img{
         display: block;
         width: 100%;
       }
+    }
+
+    header + div{
+      margin-left: 32%;
+      min-height: 160px;
+      margin-bottom: 20px;
     }
 
     footer{
