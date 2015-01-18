@@ -9,7 +9,7 @@ var Utils = {
 	range : function(min, max){
 		return  Math.random() * max  + min	;
 	}
-}
+};
 
 
 /*
@@ -131,5 +131,3 @@ var ArcReactor = (function(Particle){
 	return ArcReactor;
 
 })(Particle);
-
-var arc = new ArcReactor('arcReactor');

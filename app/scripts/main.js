@@ -1,4 +1,6 @@
-(function(){
+;(function(){
+	
+	var arc = new ArcReactor('arcReactor');
 
 	var aboutTl = new TimelineMax({paused : true});
 	aboutTl.add( TweenLite.to(['.left nav', '.left h1'], 0.2, {opacity : 0}));
