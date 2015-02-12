@@ -12,8 +12,7 @@ html{
 body{
   font-size: 16px;
   height: 100%;
-  width: 100%;
-  overflow: hidden;  
+  width: 100%;  
   position: relative;
   font-family: 'Sharp Sans Light' , arial, sans-serif;  
 }
@@ -42,14 +41,67 @@ p{
   margin: 0 0 20px 0;
 }
 
+.page{
+  padding: 20px;
+}
+
 #reactor{
+  display: none;
+}
+
+#page-home{
+  padding-bottom: 0;  
+  nav, .back{
+    display: none;
+  }
+}
+
+#page-about{
+  background-color: $purple;
+  color:white;
+  .social{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
+    img{
+      width: 100%;
+    }
+  }
+}
+
+#page-works{
+  background-color: $gray;
+  header{
+    margin-bottom: 10px;
+    img{
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+/* ==========================================================================
+   Desktop
+========================================================================== */
+@media only screen and (min-width : 667px) { 
+
+body{
+  overflow: hidden;  
+}
+
+#reactor{
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 1000;
   margin: -200px 0 0 -201px;
 }
-
+ 
 canvas{
   margin: 0 auto; 
   display: block;
@@ -101,7 +153,8 @@ canvas{
 /* ==========================================================================
    About
 ========================================================================== */
-#page-about{    
+#page-about{   
+  color:black; 
   background: url(../images/me.jpg) left bottom white;
   background-size: cover;
   
@@ -109,18 +162,6 @@ canvas{
     width: 35%;      
     margin: 0 40% 0 25%;
   }
-
-  .social{
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    position: relative;
-    margin-bottom: 20px;
-    img{
-      width: 100%;
-    }
-  }
-
 }
 
 
@@ -207,7 +248,9 @@ canvas{
    Home Page
 ========================================================================== */
 #page-home{
-
+  nav, .back{
+    display: block;
+  }
   .left, .right{
     width: 50%;
     height: 100%;
@@ -274,6 +317,7 @@ canvas{
 
 
 .back{
+  display: block;
   cursor: pointer;
   @include font-size(1.6);
   padding: 5px 0;
@@ -291,3 +335,6 @@ canvas{
   left: 40px; 
   color: $pink;
 }
+
+
+}//end mq
